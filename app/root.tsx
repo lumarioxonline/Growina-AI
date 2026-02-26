@@ -1,11 +1,11 @@
 import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
-// ✅ Alleen dit, GEEN kale .css import
+// ✅ Alleen via ?url (GEEN kale .css import)
 import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: polarisStyles },
+  { rel: "stylesheet", href: polarisStyles }
 ];
 
 export const meta: MetaFunction = () => [{ title: "Growina" }];
