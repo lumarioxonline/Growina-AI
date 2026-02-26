@@ -1,1 +1,7 @@
-export default { serverBuildPath: "build/server.js" };
+/** @type {import('@remix-run/dev').AppConfig} */
+module.exports = {
+  serverBuildPath: "build/server.js",
+  serverDependenciesToBundle: [
+    /^@shopify\/polaris/,
+  ],
+};
