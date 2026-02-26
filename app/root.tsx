@@ -1,19 +1,15 @@
 import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
-// Polaris CSS via URL (werkt met Vite)
-import "@shopify/polaris/build/esm/styles.css";
+import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: polarisStyles },
 ];
 
-export const meta: MetaFunction = () => [
-  { title: "Growina" },
-];
+export const meta: MetaFunction = () => [{ title: "Growina" }];
 
 export async function loader({ request }: LoaderFunctionArgs) {
-  // hier kan later auth/session in; voor nu leeg zodat app kan starten
   return null;
 }
 
