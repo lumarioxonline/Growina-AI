@@ -1,34 +1,15 @@
-import fs from "node:fs";
-import { spawn } from "node:child_process";
+import { execSync } from "node:child_process";
 
-const candidates = [
-  "build/server.js",
-  "build/server/index.js",
-  "build/server/index.mjs",
-  "build/server.mjs",
-  "build/server/index.cjs",
-];
-
-const found = candidates.find((p) => fs.existsSync(p));
-
-if (!found) {
-  console.error("❌ No server build file found. Checked:", candidates);
-  console.error("📁 build dir exists?", fs.existsSync("build"));
-  if (fs.existsSync("build")) {
-    console.error("📄 build contents:", fs.readdirSync("build"));
-  }
-  process.exit(1);
+function run(cmd) {
+  execSync(cmd, { stdio: "inherit" });
 }
 
-console.log("✅ Starting:", found);
-
-// Prefer remix-serve if present, otherwise node
-const useRemixServe = fs.existsSync("node_modules/.bin/remix-serve");
-
-if (useRemixServe) {
-  const p = spawn("npx", ["remix-serve", found], { stdio: "inherit" });
-  p.on("exit", (code) => process.exit(code ?? 0));
-} else {
-  const p = spawn("node", [found], { stdio: "inherit" });
-  p.on("exit", (code) => process.exit(code ?? 0));
+try {
+  console.log("🔧 Prisma generate (startup)...");
+  run("npx prisma generate");
+} catch (e) {
+  console.warn("⚠️ Prisma generate failed (startup). Continuing anyway...");
 }
+
+console.log("✅ Starting: build/server.js");
+run("node ./node_modules/@remix-run/serve/dist/cli.js ./build/server.js");
