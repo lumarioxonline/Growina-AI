@@ -6,7 +6,7 @@
     "preinstall": "node scripts/unpack.mjs",
     "dev": "remix dev",
     "build": "remix build",
-    "start": "remix-serve build/server/index.js",
+    "start": "remix-serve build/server.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "worker": "node --loader ts-node/esm scripts/worker.ts"
