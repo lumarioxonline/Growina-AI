@@ -1,4 +1,7 @@
 /** @type {import('@remix-run/dev').AppConfig} */
-module.exports = {
-  serverBuildPath: "build/server.js"
+export default {
+  serverBuildPath: "build/server.js",
+  serverModuleFormat: "esm",
+  // Dit is de fix voor Polaris CSS imports in SSR:
+  serverDependenciesToBundle: [/^@shopify\/polaris/],
 };
