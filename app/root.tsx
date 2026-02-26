@@ -7,9 +7,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: polarisStyles },
 ];
 
-export const meta: MetaFunction = () => [
-  { title: "Growina" },
-];
+export const meta: MetaFunction = () => [{ title: "Growina" }];
 
 export async function loader({ request }: LoaderFunctionArgs) {
   return null;
