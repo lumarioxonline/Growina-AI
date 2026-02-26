@@ -6,7 +6,7 @@
     "preinstall": "node scripts/unpack.mjs",
     "postinstall": "prisma generate",
     "dev": "remix dev",
-    "build": "prisma generate && remix build",
+    "build": "node -e \"console.log('NODE', process.version)\" && prisma generate && remix build",
     "start": "node scripts/start.mjs",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
