@@ -1,5 +1,1 @@
-/** @type {import('@remix-run/dev').AppConfig} */
-export default {
-  serverModuleFormat: "esm",
-  ignoredRouteFiles: ["**/*.test.*"],
-};
+export default { serverBuildPath: "build/server.js" };
