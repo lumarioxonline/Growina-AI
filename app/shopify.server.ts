@@ -1,8 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
 import { shopifyApp } from "@shopify/shopify-app-remix/server";
-
-const prisma = new PrismaClient();
+import { MemorySessionStorage } from "@shopify/shopify-app-session-storage-memory";
 
 export const shopify = shopifyApp({
   apiKey: process.env.SHOPIFY_API_KEY!,
@@ -12,7 +9,7 @@ export const shopify = shopifyApp({
     .split(",")
     .map((s) => s.trim())
     .filter(Boolean),
-  sessionStorage: new PrismaSessionStorage(prisma),
+  sessionStorage: new MemorySessionStorage()
 });
 
 export const authenticate = shopify.authenticate;
