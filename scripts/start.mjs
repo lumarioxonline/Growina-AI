@@ -4,9 +4,9 @@ import { spawn } from "node:child_process";
 const candidates = [
   "build/server.js",
   "build/server/index.js",
-  "build/index.js",
-  "server.js",
-  "dist/server.js",
+  "build/server/index.mjs",
+  "build/server.mjs",
+  "build/server/index.cjs",
 ];
 
 const found = candidates.find((p) => fs.existsSync(p));
