@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "preinstall": "node scripts/unpack.mjs"
     "dev": "remix dev",
     "build": "remix build",
     "start": "remix-serve build/server/index.js",
