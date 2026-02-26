@@ -2,7 +2,7 @@ import type { LinksFunction, LoaderFunctionArgs, MetaFunction } from "@remix-run
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from "@remix-run/react";
 
 // Polaris CSS via URL (werkt met Vite)
-import polarisStyles from "@shopify/polaris/build/esm/styles.css?url";
+import "@shopify/polaris/build/esm/styles.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: polarisStyles },
