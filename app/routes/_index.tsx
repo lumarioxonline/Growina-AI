@@ -6,8 +6,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const shop = url.searchParams.get("shop");
 
   if (shop) {
-    const target = /auth?shop=${encodeURIComponent(shop)};
-    return redirect(target);
+    return redirect("/auth?shop=" + encodeURIComponent(shop));
   }
 
   return null;
