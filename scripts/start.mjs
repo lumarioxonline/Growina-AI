@@ -1,4 +1,8 @@
 import { execSync } from "node:child_process";
+import { webcrypto } from "crypto";
+
+// Polyfill Web Crypto API for Shopify OAuth
+globalThis.crypto ??= webcrypto;
 
 function run(cmd) {
   execSync(cmd, { stdio: "inherit" });

@@ -1,3 +1,7 @@
+// Polyfill for Web Crypto API in Node.js
+import { webcrypto } from "crypto";
+(globalThis as any).crypto ??= webcrypto;
+
 import { PrismaClient } from "@prisma/client";
 
 let prismaGlobal = globalThis as unknown as { prisma?: PrismaClient };

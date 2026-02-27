@@ -1,8 +1,6 @@
-// Polyfill for Web Crypto API in Node.js (run first, before Shopify OAuth)
+// Polyfill for Web Crypto API in Node.js (must run before Shopify imports)
 import { webcrypto } from "crypto";
-if (!globalThis.crypto) {
-  (globalThis as any).crypto = webcrypto;
-}
+(globalThis as any).crypto ??= webcrypto;
 
 import { shopifyApp } from "@shopify/shopify-app-remix/server";
 import { PrismaSessionStorage } from "@shopify/shopify-app-session-storage-prisma";
