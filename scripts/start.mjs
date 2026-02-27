@@ -24,4 +24,5 @@ try {
 }
 
 console.log("✅ Starting: build/server.js");
-run("node ./node_modules/@remix-run/serve/dist/cli.js ./build/server.js");
+// preload crypto polyfill in the server process
+run("node -r ./polyfill-crypto.mjs ./node_modules/@remix-run/serve/dist/cli.js ./build/server.js");
