@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["@remix-run/node", "vite/client"],
+    "types": ["@remix-run/node", "vite/client", "react", "react-dom"],
     "jsx": "react-jsx",
     "module": "ESNext",
     "moduleResolution": "Bundler",
