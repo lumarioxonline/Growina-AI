@@ -1,0 +1,1 @@
+import{b as t}from"/build/_shared/chunk-4HXKWYDW.js";import{c as e}from"/build/_shared/chunk-Q3IECNXJ.js";var d=e(t(),1);function a(){return(0,d.jsxs)("div",{style:{padding:20},children:[(0,d.jsx)("h1",{children:"Growina draait \u2705"}),(0,d.jsx)("p",{children:"Homepage werkt."})]})}export{a as default};

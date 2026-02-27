@@ -1,0 +1,17 @@
+node_modules
+/.cache
+/.npm
+/.pnpm-store
+/.turbo
+/dist
+/build
+/.env
+*.log
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# OS/editor
+.DS_Store
+.vscode
