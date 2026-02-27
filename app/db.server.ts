@@ -1,3 +1,9 @@
+// Polyfill for Web Crypto API in Node.js (needed for Shopify OAuth)
+import { webcrypto } from "crypto";
+if (!globalThis.crypto) {
+  (globalThis as any).crypto = webcrypto;
+}
+
 import { PrismaClient } from "@prisma/client";
 
 let prismaGlobal = globalThis as unknown as { prisma?: PrismaClient };
