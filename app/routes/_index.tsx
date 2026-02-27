@@ -5,12 +5,11 @@ export async function loader({ request }: LoaderFunctionArgs) {
   const url = new URL(request.url);
   const shop = url.searchParams.get("shop");
 
-  // Als Shopify je app opent, zit er altijd ?shop=...
   if (shop) {
-    return redirect(/auth?shop=${encodeURIComponent(shop)});
+    const target = /auth?shop=${encodeURIComponent(shop)};
+    return redirect(target);
   }
 
-  // Geen shop param = normale website/home
   return null;
 }
 
